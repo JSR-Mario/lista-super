@@ -1,0 +1,677 @@
+/* ========================================
+   CSS Variables & Design Tokens
+   ======================================== */
+:root {
+    /* Color palette - soft, easy on the eyes */
+    --color-bg: #f8fafc;
+    --color-surface: #ffffff;
+    --color-primary: #6366f1;
+    --color-primary-hover: #4f46e5;
+    --color-primary-light: #e0e7ff;
+    --color-success: #10b981;
+    --color-success-hover: #059669;
+    --color-danger: #ef4444;
+    --color-danger-hover: #dc2626;
+    --color-warning: #f59e0b;
+    --color-text: #1e293b;
+    --color-text-muted: #64748b;
+    --color-text-light: #94a3b8;
+    --color-border: #e2e8f0;
+    --color-completed-bg: #f1f5f9;
+
+    /* Section colors */
+    --color-section-header: #f1f5f9;
+    --color-section-border: #cbd5e1;
+
+    /* Shared list indicator colors */
+    --color-shared-badge: #fbbf24;
+    --color-shared-bg: #fffbeb;
+
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+
+    /* Border radius */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-full: 9999px;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+
+    /* Typography */
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-normal: 200ms ease;
+}
+
+/* ========================================
+   Base Styles & Reset
+   ======================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.5;
+    min-height: 100vh;
+    padding: var(--space-md);
+    padding-bottom: calc(var(--space-xl) * 3);
+}
+
+/* ========================================
+   Main Container
+   ======================================== */
+.container {
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+/* ========================================
+   Header Section
+   ======================================== */
+.header {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+}
+
+.header h1 {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--space-xs);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+}
+
+.header h1::before {
+    content: "🛒";
+}
+
+.header p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+/* ========================================
+   Shared List Indicator
+   ======================================== */
+.shared-indicator {
+    display: none;
+    background: var(--color-shared-bg);
+    border: 1px solid var(--color-shared-badge);
+    border-radius: var(--radius-md);
+    padding: var(--space-sm) var(--space-md);
+    margin-bottom: var(--space-md);
+    text-align: center;
+    animation: slideDown 0.3s ease;
+}
+
+.shared-indicator.visible {
+    display: block;
+}
+
+.shared-indicator span {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: var(--font-size-sm);
+    color: #92400e;
+    font-weight: 500;
+}
+
+.shared-indicator span::before {
+    content: "📤";
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ========================================
+   Card Component
+   ======================================== */
+.card {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-md);
+}
+
+.card-title {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-md);
+}
+
+/* ========================================
+   Add Section Form
+   ======================================== */
+.add-section-form {
+    display: flex;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+}
+
+.add-section-form input {
+    flex: 1;
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--font-size-sm);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-md);
+    outline: none;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.add-section-form input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+/* ========================================
+   Sections Container
+   ======================================== */
+.sections-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+/* ========================================
+   Section Component
+   ======================================== */
+.section {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    transition: box-shadow var(--transition-normal);
+}
+
+.section.dragging {
+    box-shadow: var(--shadow-lg);
+    opacity: 0.9;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background: var(--color-section-header);
+    border-bottom: 1px solid var(--color-border);
+    cursor: grab;
+}
+
+.section-header:active {
+    cursor: grabbing;
+}
+
+.section-drag-handle {
+    color: var(--color-text-light);
+    font-size: var(--font-size-lg);
+    cursor: grab;
+    padding: var(--space-xs);
+}
+
+.section-title {
+    flex: 1;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.section-count {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    background: var(--color-bg);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-full);
+}
+
+.section-delete-btn {
+    background: none;
+    border: none;
+    color: var(--color-text-light);
+    cursor: pointer;
+    padding: var(--space-xs);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+    font-size: var(--font-size-base);
+}
+
+.section-delete-btn:hover {
+    color: var(--color-danger);
+    background: #fee2e2;
+}
+
+.section-content {
+    padding: var(--space-md);
+}
+
+/* ========================================
+   Add Item Form (within section)
+   ======================================== */
+.add-item-form {
+    display: flex;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+}
+
+.add-item-form input[type="text"] {
+    flex: 1;
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--font-size-sm);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-md);
+    outline: none;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.add-item-form input[type="text"]:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+.add-item-form input[type="number"] {
+    width: 60px;
+    padding: var(--space-sm);
+    font-size: var(--font-size-sm);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-md);
+    outline: none;
+    text-align: center;
+}
+
+.add-item-form input[type="number"]:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+/* ========================================
+   Recommended Items
+   ======================================== */
+.recommended-items {
+    margin-bottom: var(--space-md);
+}
+
+.recommended-label {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-light);
+    margin-bottom: var(--space-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.recommended-label::before {
+    content: "💡";
+}
+
+.recommended-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+}
+
+.recommended-chip {
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+    border: none;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.recommended-chip:hover {
+    background: var(--color-primary);
+    color: white;
+}
+
+.recommended-chip.added {
+    background: var(--color-completed-bg);
+    color: var(--color-text-light);
+    text-decoration: line-through;
+    pointer-events: none;
+}
+
+/* ========================================
+   Shopping List Items
+   ======================================== */
+.shopping-list {
+    list-style: none;
+}
+
+.shopping-list:empty::before {
+    content: "No items yet. Add some above!";
+    display: block;
+    text-align: center;
+    padding: var(--space-md);
+    color: var(--color-text-light);
+    font-size: var(--font-size-sm);
+    font-style: italic;
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-xs);
+    background: var(--color-bg);
+    transition: all var(--transition-fast);
+    animation: fadeIn 0.2s ease;
+}
+
+.list-item:hover {
+    box-shadow: var(--shadow-sm);
+}
+
+.list-item.completed {
+    background: var(--color-completed-bg);
+}
+
+.list-item.completed .item-text {
+    text-decoration: line-through;
+    color: var(--color-text-light);
+}
+
+.list-item.completed .item-quantity {
+    opacity: 0.5;
+}
+
+/* Custom Checkbox */
+.checkbox-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.checkbox-wrapper input {
+    position: absolute;
+    opacity: 0;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.checkbox-custom {
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+    pointer-events: none;
+}
+
+.checkbox-wrapper input:checked+.checkbox-custom {
+    background: var(--color-success);
+    border-color: var(--color-success);
+}
+
+.checkbox-custom::after {
+    content: "";
+    width: 5px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg) scale(0);
+    transition: transform var(--transition-fast);
+}
+
+.checkbox-wrapper input:checked+.checkbox-custom::after {
+    transform: rotate(45deg) scale(1);
+}
+
+.item-quantity {
+    background: var(--color-warning);
+    color: white;
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    min-width: 28px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.item-text {
+    flex: 1;
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+    word-break: break-word;
+}
+
+.delete-btn {
+    opacity: 0.4;
+    background: none;
+    border: none;
+    color: var(--color-danger);
+    cursor: pointer;
+    padding: var(--space-xs);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+    font-size: var(--font-size-base);
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.delete-btn:hover {
+    opacity: 1;
+    background: #fee2e2;
+}
+
+/* ========================================
+   Buttons
+   ======================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+    min-height: 40px;
+    min-width: 40px;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--color-primary-hover);
+}
+
+.btn-success {
+    background: var(--color-success);
+    color: white;
+}
+
+.btn-success:hover {
+    background: var(--color-success-hover);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--color-border);
+    color: var(--color-text-muted);
+}
+
+.btn-outline:hover {
+    border-color: var(--color-text-muted);
+    background: var(--color-bg);
+}
+
+.btn-small {
+    padding: var(--space-xs) var(--space-sm);
+    font-size: var(--font-size-xs);
+    min-height: 32px;
+}
+
+/* ========================================
+   Sticky Actions Bar
+   ======================================== */
+.sticky-actions {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--color-surface);
+    padding: var(--space-md);
+    border-top: 1px solid var(--color-border);
+    box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.sticky-actions-inner {
+    max-width: 520px;
+    margin: 0 auto;
+    display: flex;
+    gap: var(--space-sm);
+}
+
+.sticky-actions .btn {
+    flex: 1;
+}
+
+/* ========================================
+   Empty State
+   ======================================== */
+.empty-state {
+    text-align: center;
+    padding: var(--space-xl);
+    color: var(--color-text-light);
+}
+
+.empty-state-icon {
+    font-size: 3rem;
+    margin-bottom: var(--space-md);
+}
+
+.empty-state p {
+    margin-bottom: var(--space-md);
+}
+
+/* ========================================
+   Toast Notification
+   ======================================== */
+.toast {
+    position: fixed;
+    bottom: calc(var(--space-lg) + 70px);
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--color-text);
+    color: white;
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    text-align: center;
+    max-width: calc(100% - 2rem);
+}
+
+.toast.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ========================================
+   Responsive Adjustments
+   ======================================== */
+@media (max-width: 400px) {
+    body {
+        padding: var(--space-sm);
+        padding-bottom: calc(var(--space-xl) * 3);
+    }
+
+    .section-content {
+        padding: var(--space-sm);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
