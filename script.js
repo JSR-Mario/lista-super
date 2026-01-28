@@ -33,31 +33,48 @@
  * This makes it easy for users to quickly add common items.
  */
 const RECOMMENDED_ITEMS = {
-    // Spanish keywords
-    'frutas': ['🍎 Manzanas', '🍌 Plátanos', '🍊 Naranjas', '🍋 Limones', '🍇 Uvas', '🍓 Fresas', '🥑 Aguacate', '🍉 Sandía'],
-    'verduras': ['🥬 Lechuga', '🍅 Tomates', '🥕 Zanahorias', '🥒 Pepino', '🧅 Cebolla', '🧄 Ajo', '🥔 Papas', '🌶️ Chile'],
-    'lacteos': ['🥛 Leche', '🧀 Queso', '🧈 Mantequilla', '🥚 Huevos', '🍦 Yogurt', '🍶 Crema'],
-    'lácteos': ['🥛 Leche', '🧀 Queso', '🧈 Mantequilla', '🥚 Huevos', '🍦 Yogurt', '🍶 Crema'],
-    'carnes': ['🥩 Res', '🍗 Pollo', '🥓 Tocino', '🌭 Salchichas', '🍖 Cerdo', '🐟 Pescado'],
-    'panaderia': ['🍞 Pan', '🥐 Croissants', '🥯 Bagels', '🧁 Muffins', '🍩 Donas'],
-    'panadería': ['🍞 Pan', '🥐 Croissants', '🥯 Bagels', '🧁 Muffins', '🍩 Donas'],
-    'bebidas': ['💧 Agua', '🧃 Jugo', '☕ Café', '🍵 Té', '🥤 Refrescos', '🍺 Cerveza'],
-    'limpieza': ['🧹 Escoba', '🧽 Esponjas', '🧴 Jabón', '🧻 Papel', '🧼 Detergente'],
-    'personal': ['🪥 Cepillo', '🧴 Shampoo', '🧻 Papel higiénico', '🧼 Jabón', '💊 Medicinas'],
-    'personales': ['🪥 Cepillo', '🧴 Shampoo', '🧻 Papel higiénico', '🧼 Jabón', '💊 Medicinas'],
+    // Articulos personales
+    'personales': ['🪥 Cepillo de dientes', '🧴 Shampoo', '🧻 Papel higienico', '🧼 Jabon', '💊 Medicinas', '🪒 Rastrillo', '🧴 Crema', '🦷 Pasta dental'],
 
-    // English keywords
-    'fruits': ['🍎 Apples', '🍌 Bananas', '🍊 Oranges', '🍋 Lemons', '🍇 Grapes', '🍓 Strawberries'],
-    'vegetables': ['🥬 Lettuce', '🍅 Tomatoes', '🥕 Carrots', '🥒 Cucumber', '🧅 Onions', '🧄 Garlic'],
-    'dairy': ['🥛 Milk', '🧀 Cheese', '🧈 Butter', '🥚 Eggs', '🍦 Yogurt', '🍶 Cream'],
-    'meat': ['🥩 Beef', '🍗 Chicken', '🥓 Bacon', '🌭 Sausages', '🐟 Fish'],
-    'bakery': ['🍞 Bread', '🥐 Croissants', '🥯 Bagels', '🧁 Muffins'],
-    'drinks': ['💧 Water', '🧃 Juice', '☕ Coffee', '🍵 Tea', '🥤 Soda'],
-    'cleaning': ['🧹 Broom', '🧽 Sponges', '🧴 Soap', '🧻 Paper towels', '🧼 Detergent'],
-    'snacks': ['🍪 Cookies', '🍫 Chocolate', '🥜 Nuts', '🍿 Popcorn', '🧀 Crackers'],
-    'frozen': ['🍦 Ice cream', '🥟 Dumplings', '🍕 Pizza', '🥦 Frozen veggies'],
-    'condiments': ['🧂 Salt', '🫒 Olive oil', '🍯 Honey', '🥫 Ketchup', '🌶️ Hot sauce']
+    // Frutas y verduras
+    'frutas': ['🍎 Manzanas', '🍌 Platanos', '🍊 Naranjas', '🍋 Limones', '🍇 Uvas', '🍓 Fresas', '🥑 Aguacate', '🍉 Sandia', '🥭 Mango', '🍍 Pina'],
+    'verduras': ['🥬 Lechuga', '🍅 Tomates', '🥕 Zanahorias', '🥒 Pepino', '🧅 Cebolla', '🧄 Ajo', '🥔 Papas', '🌶️ Chile', '� Brocoli', '� Pimiento'],
+
+    // Carnes, pescados y demas
+    'carnes': ['🥩 Carne de res', '🍗 Pollo', '🥓 Tocino', '🌭 Salchichas', '🍖 Cerdo', '🐟 Pescado', '� Camaron', '� Huevos'],
+    'pescados': ['🐟 Pescado', '� Camaron', '� Pulpo', '� Langosta', '🐚 Almejas'],
+
+    // Cosas de limpieza
+    'limpieza': ['🧹 Escoba', '🧽 Esponjas', '🧴 Jabon liquido', '🧻 Papel de cocina', '🧼 Detergente', '🪣 Trapeador', '� Cloro', '🧴 Suavizante'],
+
+    // Cereales y leches
+    'cereales': ['� Cereal', '� Leche', '� Leche deslactosada', '� Granola', '🍯 Avena', '🥛 Leche de almendras'],
+    'leches': ['🥛 Leche entera', '🥛 Leche deslactosada', '🥛 Leche de almendras', '🥛 Leche de soya'],
+
+    // Arroz
+    'arroz': ['🍚 Arroz blanco', '� Arroz integral', '� Frijoles', '� Lentejas', '🌽 Elote', '� Frijoles de lata'],
+
+    // Especies
+    'especies': ['� Sal', '🌶️ Pimienta', '� Ajo en polvo', '� Oregano', '🌿 Cilantro', '🍃 Laurel', '�️ Chile en polvo', '� Cebolla en polvo'],
+
+    // Pan, yogurt, lacteos y jamon
+    'pan': ['🍞 Pan blanco', '🥖 Baguette', '🥐 Cuernos', '🍞 Pan integral', '� Tortillas'],
+    'yogurt': ['🍦 Yogurt natural', '🍦 Yogurt griego', '🍦 Yogurt de fresa', '🍦 Yogurt bebible'],
+    'lacteos': ['� Queso', '� Mantequilla', '🍦 Yogurt', '🍶 Crema', '� Queso crema', '� Queso oaxaca'],
+    'jamon': ['🥓 Jamon', '🥓 Jamon de pavo', '� Salchicha', '� Tocino']
 };
+
+// Default sections to create on first load
+const DEFAULT_SECTIONS = [
+    'Articulos personales',
+    'Frutas y verduras',
+    'Carnes, pescados y demas',
+    'Cosas de limpieza',
+    'Cereales y leches',
+    'Arroz',
+    'Especies',
+    'Pan, yogurt, lacteos y jamon'
+];
 
 /**
  * Get recommended items for a section based on its name.
@@ -587,6 +604,15 @@ function init() {
         isSharedList = true;
         showSharedIndicator(true);
         showToast('Shared list loaded! ✨');
+    } else {
+        // Create default sections on first load
+        DEFAULT_SECTIONS.forEach((name, index) => {
+            sections.push({
+                id: Date.now() + index,
+                name: name,
+                items: []
+            });
+        });
     }
 
     renderSections();
