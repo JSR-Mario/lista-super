@@ -103,6 +103,31 @@ const copyLinkBtn = document.getElementById('copyLinkBtn');
 const clearCompletedBtn = document.getElementById('clearCompletedBtn');
 const sharedIndicator = document.getElementById('sharedIndicator');
 const toast = document.getElementById('toast');
+const themeToggle = document.getElementById('themeToggle');
+
+// ============================================
+// Theme Management
+// ============================================
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    } else {
+        // Default to light mode
+        document.documentElement.setAttribute('data-theme', 'light');
+    }
+}
+
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    showToast(newTheme === 'dark' ? 'Modo noche activado 🌙' : 'Modo dia activado ☀️');
+}
+
+// Initialize theme immediately
+initTheme();
 
 // ============================================
 // Application State
@@ -585,6 +610,9 @@ sectionsContainer.addEventListener('change', (e) => {
 // Sticky action buttons
 copyLinkBtn.addEventListener('click', copyShareLink);
 clearCompletedBtn.addEventListener('click', clearAllCompleted);
+
+// Theme toggle
+themeToggle.addEventListener('click', toggleTheme);
 
 // Hash change handler
 window.addEventListener('hashchange', () => {
